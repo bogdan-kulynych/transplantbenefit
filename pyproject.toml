@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "transplantbenefit"
+version = "0.1.0"
+description = ""
+authors = ["Bogdan Kulynych <bogdan@kulyny.ch>"]
+license = "MIT"
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+pandas = "^2.2.3"
+scikit-learn = "^1.5.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
