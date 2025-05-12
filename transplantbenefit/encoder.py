@@ -24,52 +24,24 @@ def group2dummy(group: int, length: int) -> list:
 def make_rdisease_vec(
     rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs, previous_tx_tbs
 ):
-    rdisease_primary_tbs = int(rdisease_primary_tbs)
-    rdisease_secondary_tbs = int(rdisease_secondary_tbs)
-    rdisease_tertiary_tbs = int(rdisease_tertiary_tbs)
     if previous_tx_tbs > 0:
         result = 10
-    elif any(
-        x == 1
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 1
-    elif any(
-        x == 2
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 2
-    elif any(
-        x == 3
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 3
-    elif any(
-        x == 4
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 4
-    elif any(
-        x == 5
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 5
-    elif any(
-        x == 6
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 6
-    elif any(
-        x == 7
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 7
-    elif any(
-        x == 8
-        for x in [rdisease_primary_tbs, rdisease_secondary_tbs, rdisease_tertiary_tbs]
-    ):
-        result = 8
-    else:
+
+    disease_indicators = [str(k) for k in range(1, 9)]
+    match = False
+    for disease_indicator in disease_indicators:
+        if any(
+            x == disease_indicator
+            for x in [
+                rdisease_primary_tbs,
+                rdisease_secondary_tbs,
+                rdisease_tertiary_tbs,
+            ]
+        ):
+            result = disease_indicator
+            match = True
+
+    if not match:
         result = 9
 
     out = group2dummy(result, 10)

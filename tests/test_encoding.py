@@ -9,14 +9,14 @@ from transplantbenefit import encoder, cases
 @pytest.mark.parametrize(
     "primary_disease,encoded_vec",
     [
-        (1, [0, 0, 0, 0, 0, 0, 0, 0]),
-        (2, [1, 0, 0, 0, 0, 0, 0, 0]),
-        (3, [0, 0, 0, 0, 0, 0, 0, 0]),
-        (4, [0, 1, 0, 0, 0, 0, 0, 0]),
+        ("1", [0, 0, 0, 0, 0, 0, 0, 0]),
+        ("2", [1, 0, 0, 0, 0, 0, 0, 0]),
+        ("3", [0, 0, 0, 0, 0, 0, 0, 0]),
+        ("4", [0, 1, 0, 0, 0, 0, 0, 0]),
     ],
 )
 def test_disease_encoding(primary_disease, encoded_vec):
-    assert list(encoder.make_rdisease_vec(primary_disease, 0, 0, 0)) == encoded_vec
+    assert list(encoder.make_rdisease_vec(primary_disease, "0", "0", 0)) == encoded_vec
 
 
 # From R code.
@@ -114,3 +114,4 @@ def test_default_case_encoding():
         )
         < tol
     )
+    assert list(encoder.make_rdisease_vec(primary_disease, "0", "0", 0)) == encoded_vec
