@@ -1,17 +1,16 @@
-[tool.poetry]
+[project]
 name = "transplantbenefit"
 version = "0.1.0"
-description = ""
-authors = ["Bogdan Kulynych <bogdan@kulyny.ch>"]
-license = "MIT"
+description = "TBS model port in Python"
 readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "pandas>=2.2.3",
+    "scikit-learn>=1.6.1",
+]
 
-[tool.poetry.dependencies]
-python = "^3.10"
-pandas = "^2.2.3"
-scikit-learn = "^1.5.2"
-
-
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[dependency-groups]
+dev = [
+    "jupyter>=1.1.1",
+    "pytest>=8.3.5",
+]
