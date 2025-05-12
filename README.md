@@ -1,7 +1,7 @@
 
 ## Installing
 
-You can install with `pip install -e .` or `poetry install`.
+You can install with `pip install -e .` or `uv install`.
 
 ## Usage
 
