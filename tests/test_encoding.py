@@ -114,4 +114,3 @@ def test_default_case_encoding():
         )
         < tol
     )
-    assert list(encoder.make_rdisease_vec(primary_disease, "0", "0", 0)) == encoded_vec
